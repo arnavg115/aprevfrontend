@@ -33,7 +33,7 @@ export const Register: FC<RouteComponentProps> = ({ history }) => {
         onSubmit={async (e) => {
           e.preventDefault();
           console.log("form submitted");
-          const res = await register({
+          await register({
             variables: {
               email,
               password,

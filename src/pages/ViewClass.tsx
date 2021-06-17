@@ -28,7 +28,7 @@ export const ViewClass: FC = () => {
     if (rating === "" || comment === "") {
       alert("No comment or rating entered");
     } else {
-      const res = await addComment({
+      await addComment({
         variables: {
           ownerClass: id,
           rating: isNaN(parseInt(rating)) ? 1 : parseInt(rating),

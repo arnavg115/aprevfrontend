@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import { RouteComponentProps } from "react-router-dom";
+
 import { useByeQuery } from "../generated/graphql";
-export const Bye: FC<RouteComponentProps> = ({}) => {
+export const Bye: FC = () => {
   const { data, error, loading } = useByeQuery({
     fetchPolicy: "network-only",
   });
