@@ -1,0 +1,3 @@
+mutation AddClass($className: String!, $description: String!) {
+  addClass(name: $className, description: $description)
+}

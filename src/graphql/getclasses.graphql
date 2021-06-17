@@ -1,0 +1,9 @@
+query getClasses {
+  ListClasses {
+    id
+    name
+    description
+    total
+    nums
+  }
+}

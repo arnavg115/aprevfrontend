@@ -1,0 +1,16 @@
+query getOne($className: String!) {
+  getOneClass(className: $className) {
+    name
+    description
+    comments {
+      id
+      comment
+      rating
+      commenter {
+        email
+      }
+    }
+    total
+    nums
+  }
+}

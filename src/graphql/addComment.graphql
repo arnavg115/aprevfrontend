@@ -1,0 +1,3 @@
+mutation addComment($comment: String!, $rating: Int!, $ownerClass: String!) {
+  addComment(rating: $rating, comment: $comment, ownerClass: $ownerClass)
+}

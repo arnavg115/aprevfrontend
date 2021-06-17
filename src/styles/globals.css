@@ -1,0 +1,69 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+.jss {
+  position: fixed;
+  top: 0px;
+}
+
+.ns {
+  display: flex;
+  height: 5px;
+  padding: 30px;
+  align-items: center;
+  background-color: rgb(24, 24, 24);
+}
+
+.random {
+  color: white;
+  margin-right: 10px;
+}
+
+.branding {
+  margin-right: 30px;
+}
+
+.g {
+  background-color: rgb(24, 24, 24);
+  display: grid;
+  grid-template-columns: 80vw 20vw;
+}
+
+.na {
+  display: flex;
+  align-items: center;
+}
+
+.wh {
+  color: white;
+}
+.boc {
+  height: 400px;
+  width: 400px;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.s {
+  display: grid;
+  height: calc(100vh - 65px);
+  place-items: center;
+}
+
+@media screen and (max-width: 1800px) {
+  .g {
+    display: flex;
+    width: 100vw;
+  }
+  .na {
+    justify-self: end;
+  }
+}
