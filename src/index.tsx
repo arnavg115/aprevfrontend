@@ -13,7 +13,6 @@ import jwtDecode from "jwt-decode";
 import App from "./App";
 import { getToken, setToken } from "./accessToken";
 import { CssBaseline, GeistProvider } from "@geist-ui/react";
-
 const httpLink = createHttpLink({
   uri: "http://localhost:4000/graphql",
   credentials: "include",

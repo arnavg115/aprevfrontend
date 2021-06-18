@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { useGetClassesQuery } from "../generated/graphql";
 import { Link } from "react-router-dom";
 import { Card, Col, Row, Spacer, Text, Progress } from "@geist-ui/react";
@@ -7,6 +7,9 @@ import _ from "lodash";
 
 export const Home: FC = () => {
   const all = useGetClassesQuery({ fetchPolicy: "network-only" });
+  useEffect(() => {
+    document.title = "Home";
+  }, []);
 
   return (
     <div>

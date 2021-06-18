@@ -1,4 +1,4 @@
-import { Button, Spacer, Text } from "@geist-ui/react";
+import { Button, Spacer, Text, Loading, Avatar } from "@geist-ui/react";
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import { setToken } from "./accessToken";
@@ -10,7 +10,7 @@ export default function Header(props: any) {
   const [logout, { client }] = useLogoutMutation();
   const Navbar: FC = () => {
     if (loading) {
-      return <p>Loading</p>;
+      return <Loading size="large" />;
     } else if (!data || !data.me) {
       return (
         <div className="g">
@@ -39,6 +39,8 @@ export default function Header(props: any) {
             </Link>
           </div>
           <div className="na">
+            <Avatar src={data.me.uri} size="mini" />
+            <Spacer x={1} />
             <h4 className="wh">{data.me.email}</h4>
             <Spacer x={4} />
             <Button

@@ -52,6 +52,7 @@ export type Mutation = {
 
 
 export type MutationRegisterArgs = {
+  imageURI: Scalars['String'];
   password: Scalars['String'];
   email: Scalars['String'];
 };
@@ -105,6 +106,7 @@ export type User = {
   __typename?: 'User';
   id: Scalars['Int'];
   email: Scalars['String'];
+  uri: Scalars['String'];
   comments: Array<Commments>;
   classes: Array<Classes>;
 };
@@ -193,7 +195,7 @@ export type LoginMutation = (
     & Pick<LoginResponse, 'accessToken'>
     & { user: (
       { __typename?: 'User' }
-      & Pick<User, 'id' | 'email'>
+      & Pick<User, 'id' | 'email' | 'uri'>
     ) }
   ) }
 );
@@ -213,13 +215,14 @@ export type MeQuery = (
   { __typename?: 'Query' }
   & { me?: Maybe<(
     { __typename?: 'User' }
-    & Pick<User, 'id' | 'email'>
+    & Pick<User, 'id' | 'email' | 'uri'>
   )> }
 );
 
 export type RegisterMutationVariables = Exact<{
   email: Scalars['String'];
   password: Scalars['String'];
+  uri: Scalars['String'];
 }>;
 
 
@@ -460,6 +463,7 @@ export const LoginDocument = gql`
     user {
       id
       email
+      uri
     }
   }
 }
@@ -526,6 +530,7 @@ export const MeDocument = gql`
   me {
     id
     email
+    uri
   }
 }
     `;
@@ -557,8 +562,8 @@ export type MeQueryHookResult = ReturnType<typeof useMeQuery>;
 export type MeLazyQueryHookResult = ReturnType<typeof useMeLazyQuery>;
 export type MeQueryResult = Apollo.QueryResult<MeQuery, MeQueryVariables>;
 export const RegisterDocument = gql`
-    mutation Register($email: String!, $password: String!) {
-  register(email: $email, password: $password)
+    mutation Register($email: String!, $password: String!, $uri: String!) {
+  register(email: $email, password: $password, imageURI: $uri)
 }
     `;
 export type RegisterMutationFn = Apollo.MutationFunction<RegisterMutation, RegisterMutationVariables>;
@@ -578,6 +583,7 @@ export type RegisterMutationFn = Apollo.MutationFunction<RegisterMutation, Regis
  *   variables: {
  *      email: // value for 'email'
  *      password: // value for 'password'
+ *      uri: // value for 'uri'
  *   },
  * });
  */
